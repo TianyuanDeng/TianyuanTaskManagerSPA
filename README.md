@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
-## Function Explain
+## *FUNCTION EXPLATION*
 
  - On the mainpage '/', show lists of the tasks as it is task managment system.
  - Click on taks Task - point user to Task detail and on this page it show's the user details who is assigned to this task.
