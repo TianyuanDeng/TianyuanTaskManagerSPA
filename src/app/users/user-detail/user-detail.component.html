@@ -2,6 +2,9 @@
     <div class="alert alert-danger" *ngIf="invalidDelete" >
       User delete please go to home page.</div>
 
+      <div class="alert alert-danger" *ngIf="failDelete" >
+        Please correct id.</div>
+
   <h2>User Details</h2>
   <table class="table table-hover">
     <thead>
@@ -95,7 +98,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <input type="submit" class="btn btn-primary" value="submit" (click)="modal.close(); deleteTask()" />
+        <input type="submit" class="btn btn-primary" value="submit" (click)="modal.close(); deleteTask();" />
       </div>
     </ng-template>
 

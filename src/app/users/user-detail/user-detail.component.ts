@@ -37,6 +37,8 @@ export class UserDetailComponent implements OnInit {
   tasksHistory: TaskHistory[];
   invalidGetData = false;
   invalidDelete = false;
+  failDelete = false;
+  load = false;
 
   returnUrl: any;
   resp: any;
@@ -61,7 +63,8 @@ export class UserDetailComponent implements OnInit {
               this.taskHistoryService.getTask(this.id).subscribe(
                 th => {
                   this.tasksHistory = th;
-                  console.log(this.tasksHistory); 
+                  console.log(this.tasksHistory);
+                  this.invalidGetData = false;
                 }, (err: any) => {
                   this.invalidGetData = true;
                 });
@@ -78,6 +81,7 @@ export class UserDetailComponent implements OnInit {
       this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
         this.closeResult = `Closed with: ${this.closeResult}`;
         console.log(this.deletedId);
+
         }, (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
@@ -97,6 +101,7 @@ export class UserDetailComponent implements OnInit {
     deleteUser() {
       this.authService.deleteUser(this.id).subscribe((response) => {
         if(response) {
+          window.location.reload();
           this.router.navigate(['this.returnUrl']);
         }
       },
@@ -107,12 +112,15 @@ export class UserDetailComponent implements OnInit {
 
     listenter = false;
     deleteTask() {
+      if (this.tasksHistory.find(element => element.taskId == this.deletedId)){
+        this.invalidDelete = true;
+      }else {
+        this.failDelete = true;
+      }
+
       this.authService.deleteTaskHistory(this.deletedId).subscribe((response) => {
-        if(response[0].status == 200){
-          this.listenter = true;  
-        }else {
-          this.invalidDelete = true;
-        }
+
       })
+      window.location.reload();
     }
 }
