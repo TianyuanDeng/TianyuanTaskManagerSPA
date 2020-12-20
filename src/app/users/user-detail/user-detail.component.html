@@ -1,0 +1,111 @@
+<div class="mx-auto mt-3" style="width: 98%;">
+    <div class="alert alert-danger" *ngIf="invalidDelete" >
+      User delete please go to home page.</div>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="listenter">
+        Success! Please refresh page!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+  <h2>User Details</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserId</th>
+      <th scope="col">Email</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Mobile Number</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{user.id}}</th>
+        <th scope="row">{{user.email}}</th>
+        <th scope="row">{{user.fullName}}</th>
+        <td scope="row">{{user.mobileno}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-secondary " 
+  [routerLink]="['/user/create', user.id]">Create</button>
+  <button type="button" class="btn btn-secondary" 
+  [routerLink]="['/user/update', user.id]">Update</button>
+
+
+  <button type="button" class="btn  float-right  btn-outline-danger" 
+        (click)="deleteUser()">Delete</button>
+  <br>
+
+  <br>
+ 
+
+  <div *ngIf="invalidGetData; then emptyBlock else dataBlock"></div>
+  <ng-template #dataBlock>
+    <h2>User History Tasks</h2>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Task Id</th>
+        <th scope="col">User Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">DueDate</th>
+        <th scope="col">Complted</th>
+        <th scope="col">remakrs</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasksHistory">
+          <th scope="row">{{task.taskId}}</th>
+          <th scope="row">{{task.userId}}</th>
+          <th scope="row">{{task.title}}</th>
+          <td scope="row">{{task.description}}</td>
+          <td scope="row">{{task.dueDate | date:'MM-dd-yyyy'}}</td>
+          <td scope="row">{{task.completed | date:'MM-dd-yyyy'}}</td>
+          <td scope="row">{{task.remarks}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+  <ng-template #emptyBlock> 
+     <div class="alert alert-danger">
+      This User does not have history task. Please add one and refresh.
+      </div>
+
+  </ng-template>
+
+  
+  <button type="button" class="btn btn-secondary " 
+  [routerLink]="['taskHistory/create']">Create</button>
+  <button type="button" class="btn btn-secondary" 
+  [routerLink]="['taskHistory/update']">Update</button>
+
+
+  <button type="button" class="btn  float-right  btn-outline-danger" 
+  (click)="open(content)">Delete</button>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Delete Task</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <div class="input-group"> 
+            <label for="dateOfBirth">Task Id</label>
+          </div>
+          <input type="number" class="form-control" id="taskId" name="taskId" [(ngModel)]="deletedId">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-primary" value="submit" (click)="modal.close(); deleteTask()" />
+      </div>
+    </ng-template>
+
+  <br>
+</div>

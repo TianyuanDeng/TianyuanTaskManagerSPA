@@ -1,0 +1,49 @@
+<div class="mx-auto mt-3" style="width: 98%;">
+  <h2>Task Details</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserId</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">dueDate</th>
+      <th scope="col">priority</th>
+      <th scope="col">remakrs</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{taskById.id}}</th>
+        <th scope="row">{{taskById.userId}}</th>
+        <th scope="row">{{taskById.title}}</th>
+        <td scope="row">{{taskById.description}}</td>
+        <td scope="row">{{taskById.dueDate | date:'MM-dd-yyyy'}}</td>
+        <td scope="row">{{taskById.priority}}</td>
+        <td scope="row">{{taskById.remakrs}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>User Details</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserId</th>
+      <th scope="col">Email</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Mobile Number</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{user.id}}</th>
+        <th scope="row">{{user.email}}</th>
+        <th scope="row">{{user.fullName}}</th>
+        <td scope="row">{{user.mobileno}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 

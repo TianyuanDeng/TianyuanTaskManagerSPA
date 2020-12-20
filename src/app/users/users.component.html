@@ -1,0 +1,5 @@
+<ul class="list-unstyled p-2">
+    <li  *ngFor="let user of users">
+        <a ngbDropdownItem [routerLink]="['/user', user.id]">{{ user.fullName }}, id: {{user.id}}</a>
+    </li>
+  </ul> 

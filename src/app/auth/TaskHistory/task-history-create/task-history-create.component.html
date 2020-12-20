@@ -1,0 +1,75 @@
+<div class="mx-auto mt-3" style="width: 98%;">
+
+    <h2>Create New Tasks</h2>
+    <form (ngSubmit)="createHistoryTask()" #loginForm="ngForm">
+        <div class="alert alert-danger" *ngIf="invalidRegister" >
+            Invalid Information</div>
+
+        <div class="alert alert-danger" *ngIf="listern" >
+                Success! Please refresh page</div>
+ 
+        <div class="form-group" >
+          <label for="exampleFormControlSelect1">User Id</label>
+              <input               type="number"
+              class="form-control"
+              id="userId"
+              aria-describedby="userIdHelp"
+              name="userId"
+              [(ngModel)]="taskRegister.userId">
+              <small id="emailHelp" class="form-text text-muted">Currect user id is {{id}}</small>
+        </div>
+
+        <div class="form-group"> 
+            <label for="lblEmail">Title</label>
+            <input
+              type="title"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              name="title"
+              [(ngModel)]="taskRegister.title"
+              />
+          </div>
+
+        <div class="form-group">
+        <label for="password">Description</label>
+        <input
+            type="description"
+            class="form-control"
+            id="description"
+            name="description"
+            [(ngModel)]="taskRegister.description"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Due Date</label>
+            <input
+                type="date"
+                class="form-control"
+                id="dueDate"
+                name="dueDate" [(ngModel)]="taskRegister.dueDate"/>
+        </div>
+
+
+        <div class="form-group">
+            <label for="password">Completed Time</label>
+            <input
+                type="date"
+                class="form-control"
+                id="completed"
+                name="completed" [(ngModel)]="taskRegister.completed"/>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Remakrs</label>
+            <input
+                type="remakrs"
+                class="form-control"
+                id="remakrs"
+                name="remakrs" [(ngModel)]="taskRegister.remakrs"/>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="submit" />
+      </form>
+  </div>

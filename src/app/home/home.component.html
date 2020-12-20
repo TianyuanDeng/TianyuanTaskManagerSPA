@@ -1,0 +1,61 @@
+<div class="mx-auto mt-3" style="width: 98%;">
+    <div class="alert alert-danger" *ngIf="invalidRegister" >
+    Invalid Information</div>
+    
+    <h2>Dashboard</h2>
+    <p>Click on task title go to detail page</p>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">S.N.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <th scope="row">{{task.id}}</th>
+            <td [routerLink]="['/tasks', task.id]">{{task.title}}</td>
+            <td>{{task.dueDate | date:'MM-dd-yyyy'}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.description}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+        <button type="button" class="btn btn-secondary " 
+            [routerLink]="['/taskCreate']">Create</button>
+        <button type="button" class="btn btn-secondary " 
+            [routerLink]="['/taskUpdate']">Update</button>
+
+
+        <button type="button" class="btn  float-right  btn-outline-danger" 
+        (click)="open(content)">Delete</button>
+
+        <form (ngSubmit)="deleteTask()" #loginForm="ngForm">
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Delete Task</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="">User and Task Id</span>
+                </div>
+                <input type="number" class="form-control" id="userId" name="userId" [(ngModel)]="deleteRequest.userId">
+                <input type="number" class="form-control" id="taskId" name="taskId" [(ngModel)]="deleteRequest.taskId">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" class="btn btn-primary" value="submit" (click)="modal.close()" />
+            </div>
+          </ng-template>
+        </form>
+
+</div>
