@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
       this.authService.delete(this.deleteRequest).subscribe(
         (response) => {}
       );
+      window.location.reload();
     })
   }
 
