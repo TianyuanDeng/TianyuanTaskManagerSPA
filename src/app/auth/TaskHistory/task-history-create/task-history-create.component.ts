@@ -34,7 +34,7 @@ export class TaskHistoryCreateComponent implements OnInit {
         p => {this.id = + p.get('id')});
 
       this.route.queryParams.subscribe(
-        (params) => (this.returnUrl = params.returnUrl || '/')
+        (params) => (this.returnUrl = params.returnUrl || '/user' + '/' + this.id)
       );
     }
 

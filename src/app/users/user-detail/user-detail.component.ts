@@ -121,6 +121,8 @@ export class UserDetailComponent implements OnInit {
       this.authService.deleteTaskHistory(this.deletedId).subscribe((response) => {
 
       })
-      window.location.reload();
+      setTimeout(function () {
+        location.reload()
+      }, 100);
     }
 }
