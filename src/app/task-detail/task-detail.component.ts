@@ -13,9 +13,23 @@ import { User } from '../shared/models/user';
 export class TaskDetailComponent implements OnInit {
 
   taskId!: number;
-  taskById!: Task;
+  taskById: Task = {
+    id: 0,
+    userId: 0,
+    title: '',
+    description: '',
+    dueDate: '',
+    priority: '',
+    remakrs: ''
+  };
 
-  user!: User;
+  user: User= {
+    id: 0, 
+    email: '',
+    fullName: '',
+    mobileno: '',
+  };
+
 
   constructor(private taskService: TaskService,
     private userService: UserService,

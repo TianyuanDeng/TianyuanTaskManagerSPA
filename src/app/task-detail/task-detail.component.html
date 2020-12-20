@@ -1,6 +1,6 @@
 <div class="mx-auto mt-3" style="width: 98%;">
   <div class="alert alert-info" role="alert">
-    Manage User or Task History. Please click user drop down, go to user detail page. 
+    If you want manage User or Task History. Please click user drop down or click on user Id belowS. 
   </div>
 
   <h2>Task Details</h2>
@@ -33,7 +33,6 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">UserId</th>
       <th scope="col">Email</th>
       <th scope="col">Full Name</th>
@@ -42,8 +41,8 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{user.id}}</th>
-        <th scope="row">{{user.email}}</th>
+        <th scope="row" [routerLink]="['/user', user.id]">{{user.id}}</th>
+        <th scope="row">{{user.email}}</th> 
         <th scope="row">{{user.fullName}}</th>
         <td scope="row">{{user.mobileno}}</td>
       </tr>
