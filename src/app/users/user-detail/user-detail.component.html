@@ -49,18 +49,18 @@
         <th scope="col">Description</th>
         <th scope="col">DueDate</th>
         <th scope="col">Complted</th>
-        <th scope="col">remakrs</th>
+        <th scope="col">Remakrs</th>
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let task of tasksHistory">
-          <th scope="row">{{task.taskId}}</th>
-          <th scope="row">{{task.userId}}</th>
-          <th scope="row">{{task.title}}</th>
-          <td scope="row">{{task.description}}</td>
-          <td scope="row">{{task.dueDate | date:'MM-dd-yyyy'}}</td>
-          <td scope="row">{{task.completed | date:'MM-dd-yyyy'}}</td>
-          <td scope="row">{{task.remarks}}</td>
+        <tr *ngFor="let tasks of tasksHistory">
+          <th scope="row">{{tasks.taskId}}</th>
+          <th scope="row">{{tasks.userId}}</th>
+          <th scope="row">{{tasks.title}}</th>
+          <td scope="row">{{tasks.description}}</td>
+          <td scope="row">{{tasks.dueDate | date:'MM-dd-yyyy'}}</td>
+          <td scope="row">{{tasks.completed | date:'MM-dd-yyyy'}}</td>
+          <td scope="row">{{tasks.remarks}}</td>
         </tr>
       </tbody>
     </table>

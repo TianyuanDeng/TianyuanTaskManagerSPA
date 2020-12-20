@@ -42,6 +42,7 @@ export class UserUpdateComponent implements OnInit {
       (response) => {
         if(response) {
           this.router.navigate([this.returnUrl]);
+          window.location.reload();
         }
       },
       (err: any) => {

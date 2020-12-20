@@ -35,6 +35,7 @@ export class UserDetailComponent implements OnInit {
   id!: number;
 
   tasksHistory: TaskHistory[];
+
   invalidGetData = false;
   invalidDelete = false;
   failDelete = false;
@@ -101,6 +102,7 @@ export class UserDetailComponent implements OnInit {
     deleteUser() {
       this.authService.deleteUser(this.id).subscribe((response) => {
         if(response) {
+          this.invalidDelete = false;
           window.location.reload();
           this.router.navigate(['this.returnUrl']);
         }
