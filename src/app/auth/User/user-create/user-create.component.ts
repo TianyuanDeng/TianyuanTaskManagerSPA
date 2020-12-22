@@ -38,7 +38,9 @@ export class UserCreateComponent implements OnInit {
     this.authService.createUser(this.user).subscribe(
       (response) => {
         if(response) {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate([this.returnUrl]).then(() => {
+            window.location.reload();
+          });;
         }
       },
       (err: any) => {

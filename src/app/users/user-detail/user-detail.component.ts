@@ -101,11 +101,9 @@ export class UserDetailComponent implements OnInit {
 
     deleteUser() {
       this.authService.deleteUser(this.id).subscribe((response) => {
-        if(response) {
-          this.invalidDelete = false;
-          window.location.reload();
-          this.router.navigate(['this.returnUrl']);
-        }
+          this.router.navigate(['this.returnUrl']).then(() => {
+            window.location.reload();
+          });;
       },
       (err: any) => {
         this.invalidDelete = true;}

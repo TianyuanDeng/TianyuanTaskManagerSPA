@@ -1,6 +1,7 @@
 <div class="mx-auto mt-3" style="width: 98%;">
-
-    <h2>Update New User</h2>
+    <div class="alert alert-danger" *ngIf="invalidRegister" >
+        Invalid Information</div>
+    <h2>Update User</h2>
     <form (ngSubmit)="updateUser()" #loginForm="ngForm">
 
         <span class="badge badge-pill badge-primary">Current UserId: {{id}}</span>

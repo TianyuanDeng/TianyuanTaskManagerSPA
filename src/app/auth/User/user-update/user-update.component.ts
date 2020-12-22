@@ -41,7 +41,9 @@ export class UserUpdateComponent implements OnInit {
     this.authService.updateUser(this.user).subscribe(
       (response) => {
         if(response) {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate([this.returnUrl]).then(() => {
+            window.location.reload();
+          });;
         }
       },
       (err: any) => {
